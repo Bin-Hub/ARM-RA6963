@@ -42,6 +42,7 @@
 
 /* USER CODE BEGIN Includes */
 #include "ssd1306.h"
+#include "ra6963.h"
 /* USER CODE END Includes */
 
 /* Private variables ---------------------------------------------------------*/
@@ -95,6 +96,33 @@ int main(void)
 
   /* USER CODE BEGIN 2 */
   ssd1306Init();
+  ra6963Init();
+
+  ra6963ClearGraphic();
+  ra6963ClearText();
+  ra6963ClearCG();
+
+  ra6963Line(0,0, 239, 0);
+  ra6963Line(0,0,0,63);
+  ra6963Line(239,0, 239, 63);
+  ra6963Line(239, 63, 0, 63);
+
+  ra6963Circle(30,30,20);
+  ra6963Line(30, 10, 30, 20);
+
+  ra6963Circle(209,30,20);
+  ra6963Line(209, 10, 209, 20);
+
+  ra6963Rectangle(60, 6, 120, 48);
+
+  ra6963TextGoTo(8,1);
+  ra6963WriteString("radzio.dxp.pl");
+
+  ra6963TextGoTo(8,3);
+  ra6963WriteString("TOSHIBA T6963C");
+
+  ra6963TextGoTo(11,5);
+  ra6963WriteString("AT91SAM7");
   ssd1306_WriteString("HI!!", 1);
   updateScreen();
   /* USER CODE END 2 */
@@ -103,9 +131,6 @@ int main(void)
   /* USER CODE BEGIN 3 */
   while (1)
   {
-
-
-
   }
   /* USER CODE END 3 */
 
